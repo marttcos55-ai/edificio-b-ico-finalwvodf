@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
     <head>
@@ -47,5 +48,74 @@
 
             <a-entity camera></a-entity>
         </a-scene>
+
+        <!-- ETIQUETA INFORMATIVA -->
+
+        <div id="etiqueta-ico" style="
+            display: none;
+            position: fixed;
+            bottom: 4%;
+            left: 5%;
+            width: 90%;
+            box-sizing: border-box;
+            background: rgba(0, 70, 45, 0.95);
+            color: white;
+            border: 2px solid white;
+            border-radius: 12px;
+            padding: 2.5vw;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            z-index: 2147483647;
+            pointer-events: none;
+        ">
+
+            <div style="
+                font-size: 4.5vw;
+                font-weight: bold;
+                margin-bottom: 8px;
+            ">
+                EDIFICIO B
+            </div>
+
+            <div style="
+                font-size: 3.8vw;
+                font-weight: bold;
+                margin-bottom: 8px;
+            ">
+                Ingenier&iacute;a en Computaci&oacute;n (ICO)
+            </div>
+
+            <div style="
+                font-size: 3.2vw;
+                line-height: 1.4;
+            ">
+                Carrera enfocada en la programaci&oacute;n,
+                desarrollo de software, redes,
+                inteligencia artificial y sistemas
+                computacionales para solucionar problemas
+                mediante la tecnolog&iacute;a.
+            </div>
+
+        </div>
+
+        <script>
+            (function () {
+                var marcador = document.querySelector("a-marker");
+                var etiqueta = document.getElementById("etiqueta-ico");
+
+                setInterval(function () {
+                    if (!marcador || !marcador.object3D) {
+                        return;
+                    }
+
+                    etiqueta.style.display =
+                        marcador.object3D.visible
+                        ? "block"
+                        : "none";
+
+                }, 100);
+            })();
+        </script>
+
     </body>
 </html>
